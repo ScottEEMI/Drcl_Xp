@@ -8,7 +8,7 @@
   </head>
   <body>
     <div class="container">
-      <img onclick="startCount()" id="style-img" src="img/logo.png" alt="">
+      <img onclick="stopCount()" id="style-img" src="img/logo.png" alt="">
     </div>
     <div class="container text">
       <p>1 TWEET</p>&nbsp<p class="pink">#DORCELCHALLENGE</p>&nbsp<p>= 1</p>&nbsp<p class="pink">MINUTE OFFERTE</p>&nbsp<p>POUR TOUS</p>
@@ -26,6 +26,7 @@
     var t;
     var timer_is_on = 0;
 
+    startCount();
     function timedCount() {
       document.getElementById("compt").innerHTML = c;
       c = c + 13;
