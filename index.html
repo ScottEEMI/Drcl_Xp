@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>DRCL xp</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <img onclick="startCount()" id="style-img" src="img/logo.png" alt="">
+    </div>
+    <div class="container text">
+      <p>1 TWEET</p>&nbsp<p class="pink">#DORCELCHALLENGE</p>&nbsp<p>= 1</p>&nbsp<p class="pink">MINUTE OFFERTE</p>&nbsp<p>POUR TOUS</p>
+    </div>
+    <div class="container">
+      <div id="compt" class="pink">
+
+      </div>
+      <div>
+        <p>minutes<br>collectées</p>
+      </div>
+    </div>
+  <script type="text/javascript">
+    var x = 1;
+    x += 1;
+    console.log(x);
+    document.getElementById("compt").value = x;
+
+    var c = 0;
+    var t;
+    var timer_is_on = 0;
+
+    function timedCount() {
+      document.getElementById("compt").innerHTML = c;
+      c = c + 13;
+      t = setTimeout(timedCount, 10000);
+    }
+
+    function startCount() {
+      if (!timer_is_on) {
+        timer_is_on = 1;
+        timedCount();
+      }
+    }
+
+    function stopCount() {
+      clearTimeout(t);
+      timer_is_on = 0;
+    }
+    </script>
+  </body>
+</html>
