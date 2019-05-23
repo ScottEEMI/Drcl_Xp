@@ -24,21 +24,21 @@
     </div>
   </div>
   <script type="text/javascript">
-  var url = "https://gb668l4kf0.execute-api.eu-west-3.amazonaws.com/prod";
-  url += '?' + $.param({
-    'api-key' : "jWpyJOeBuR34Sr4ANmehL7aFLIhI9lJ05SMzQsTx"
-  });
-  $.ajax({
-    url: url,
-    method: 'GET',
-    dataType: 'JSON',
-    success: function(data) {
-      console.log(data)
-    },
-    error: function(err) {
-      console.log('error:' + err)
-    }
-  })
+  // var url = "https://gb668l4kf0.execute-api.eu-west-3.amazonaws.com/prod";
+  // url += '?' + $.param({
+  //   'api-key' : "jWpyJOeBuR34Sr4ANmehL7aFLIhI9lJ05SMzQsTx"
+  // });
+  // $.ajax({
+  //   url: url,
+  //   method: 'GET',
+  //   dataType: 'JSON',
+  //   success: function(data) {
+  //     console.log(data)
+  //   },
+  //   error: function(err) {
+  //     console.log('error:' + err)
+  //   }
+  // })
 
     var c = 0;
     var t;
@@ -48,7 +48,7 @@
     function timedCount() {
       document.getElementById("compt").innerHTML = c;
       c = c + 13;
-      t = setTimeout(timedCount, 20000);
+      t = setTimeout(timedCount, 2000);
     }
 
     function startCount() {
