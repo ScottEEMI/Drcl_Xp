@@ -7,30 +7,48 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   </head>
   <body>
+  <div class="main-container">
     <div class="container">
       <img onclick="stopCount()" id="style-img" src="img/logo.png" alt="">
     </div>
     <div class="container text">
       <p>1 TWEET</p>&nbsp<p class="pink">#DORCELCHALLENGE</p>&nbsp<p>= 1</p>&nbsp<p class="pink">MINUTE OFFERTE</p>&nbsp<p>POUR TOUS</p>
     </div>
-    <div class="container">
+    <div class="container imp">
       <div id="compt" class="pink">
-
+          <!-- compteur -->
       </div>
-      <div>
+      <div class="imp_txt">
         <p>minutes<br>collectées</p>
       </div>
     </div>
+  </div>
   <script type="text/javascript">
+  var url = "https://gb668l4kf0.execute-api.eu-west-3.amazonaws.com/prod";
+  url += '?' + $.param({
+    'api-key' : "jWpyJOeBuR34Sr4ANmehL7aFLIhI9lJ05SMzQsTx"
+  });
+  $.ajax({
+    url: url,
+    method: 'GET',
+    dataType: 'JSON',
+    success: function(data) {
+      console.log(data)
+    },
+    error: function(err) {
+      console.log('error:' + err)
+    }
+  })
+
     var c = 0;
     var t;
     var timer_is_on = 0;
-
     startCount();
+
     function timedCount() {
       document.getElementById("compt").innerHTML = c;
       c = c + 13;
-      t = setTimeout(timedCount, 10000);
+      t = setTimeout(timedCount, 20000);
     }
 
     function startCount() {
