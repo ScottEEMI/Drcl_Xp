@@ -2,7 +2,7 @@
 <html lang="fr" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>DRCL xp</title>
+    <title>DRCL Chlnge Tweet compt</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   </head>
@@ -12,11 +12,11 @@
       <img onclick="stopCount()" id="style-img" src="img/logo.png" alt="">
     </div>
     <div class="container text">
-      <p>1 TWEET</p>&nbsp<p class="pink">#DORCELCHALLENGE</p>&nbsp<p>= 1</p>&nbsp<p class="pink">MINUTE OFFERTE</p>&nbsp<p>POUR TOUS</p>
+      <p>1 TWEET</p>&nbsp<p onclick="startCount()" class="pink">#DORCELCHALLENGE</p>&nbsp<p>= 1</p>&nbsp<p class="pink">MINUTE OFFERTE</p>&nbsp<p>POUR TOUS</p>
     </div>
     <div class="container imp">
       <div id="compt" class="pink">
-          <!-- compteur -->
+          <!-- compteur -->X
       </div>
       <div class="imp_txt">
         <p>minutes<br>collectées</p>
@@ -25,29 +25,33 @@
   </div>
   <script type="text/javascript">
   var url = "https://gb668l4kf0.execute-api.eu-west-3.amazonaws.com/prod";
-  $.ajax({
-    type: 'GET',
-    url: url,
-    dataType: 'jsonp',
-    contentType: 'jsonp',
-    headers: {'api-key':'jWpyJOeBuR34Sr4ANmehL7aFLIhI9lJ05SMzQsTx'},
-    success: function(data) {
-      console.log(data)
-    },
-    error: function(err) {
-      console.log('error:' + err)
-    }
-  })
 
-    var c = 0;
+    var c = 1;
     var t;
     var timer_is_on = 0;
     startCount();
 
     function timedCount() {
-      document.getElementById("compt").innerHTML = c;
-      c = c + 13;
-      t = setTimeout(timedCount, 2000);
+      var x = $.ajax({
+        type: 'GET',
+        url: url,
+        dataType: 'jsonp',
+        contentType: 'jsonp',
+        headers: {'x-api-key':'jWpyJOeBuR34Sr4ANmehL7aFLIhI9lJ05SMzQsTx'},
+        success: function(data) {
+          console.log(data);
+        },
+        error: function(err) {
+          console.log('error:' + err);
+        }
+      });
+      x = x.replace('{"count" :', '');
+      x = x.replace('}', '');
+      console.log("l'api renvoie : " + x);
+      document.getElementById("compt").innerHTML = x;
+      t = setTimeout(timedCount, 60000);
+      console.log('call n°' + c);
+      c += 1;
     }
 
     function startCount() {
