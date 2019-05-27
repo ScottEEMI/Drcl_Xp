@@ -2,7 +2,7 @@
 <html lang="fr" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>DRCL Chlnge Tweet compt</title>
+    <title>DORCEL Challenge</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   </head>
@@ -38,23 +38,22 @@
     url: 'https://s3.eu-west-3.amazonaws.com/dorcel-event/counter.json',
     contentType: 'application/json',
     success: function(data) {
-        // console.log(data);
         x = JSON.stringify(data);
         x = x.replace('{"count":', '');
         x = x.replace('}', '');
-        console.log("api envoie : " + x);
-        console.log("^ " + time.getHours() + "h " + time.getMinutes() + "min ^");
-        // console.log(x);
+        console.log("api renvoie : " + x);
+        console.log("^^ " + time.getHours() + "h " + time.getMinutes() + "min " + time.getSeconds() + "sec ^^");
         document.getElementById("compt").innerHTML = x;
     },
     error: function(err) {
         console.log('error:',err);
+        document.getElementById("compt").innerHTML = "XXX";
         }
     });
         var time = new Date();
-        t = setTimeout(timedCount, 60000);
+        t = setTimeout(timedCount, 1000);
         console.log("________________________");
-        console.log('call session n°' + c);
+        console.log('appel n°' + c);
         c += 1;
     }
 
