@@ -32,26 +32,30 @@
     startCount();
 
     function timedCount() {
-      var x = $.ajax({
-        type: 'GET',
-        url: url,
-        dataType: 'jsonp',
-        contentType: 'jsonp',
-        headers: {'x-api-key':'jWpyJOeBuR34Sr4ANmehL7aFLIhI9lJ05SMzQsTx'},
-        success: function(data) {
-          console.log(data);
-        },
-        error: function(err) {
-          console.log('error:' + err);
+    $.ajax({
+    type: 'GET',
+    url: 'https://s3.eu-west-3.amazonaws.com/dorcel-event/counter.json',
+    contentType: 'application/json',
+    success: function(data) {
+        console.log(data);
+        x = JSON.stringify(data);
+        x = x.replace('{"count":', '');
+        x = x.replace('}', '');
+        console.log(x);
+        document.getElementById("compt").innerHTML = x;
+    },
+    error: function(err) {
+        console.log('error:',err);
         }
-      });
-      x = x.replace('{"count" :', '');
-      x = x.replace('}', '');
-      console.log("l'api renvoie : " + x);
-      document.getElementById("compt").innerHTML = x;
-      t = setTimeout(timedCount, 60000);
-      console.log('call n°' + c);
-      c += 1;
+    });
+        x = x.replace('{"count" :', '');
+        x = x.replace('}', '');
+        console.log(x);
+        document.getElementById("compt").innerHTML = x;
+        t = setTimeout(timedCount, 60000);
+        console.log("l'api renvoie : " + x);
+        console.log('call session n°' + c);
+        c += 1;
     }
 
     function startCount() {
