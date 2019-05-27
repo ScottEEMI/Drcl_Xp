@@ -28,6 +28,7 @@
 
     var c = 1;
     var t;
+    var x;
     var timer_is_on = 0;
     startCount();
 
@@ -48,8 +49,6 @@
         console.log('error:',err);
         }
     });
-        x = x.replace('{"count" :', '');
-        x = x.replace('}', '');
         console.log(x);
         document.getElementById("compt").innerHTML = x;
         t = setTimeout(timedCount, 60000);
