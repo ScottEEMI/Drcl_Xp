@@ -16,7 +16,7 @@
     </div>
     <div class="container imp">
       <div id="compt" class="pink">
-          <!-- compteur -->X
+          <!-- compteur -->XXX
       </div>
       <div class="imp_txt">
         <p>minutes<br>collectées</p>
@@ -42,7 +42,8 @@
         x = JSON.stringify(data);
         x = x.replace('{"count":', '');
         x = x.replace('}', '');
-        console.log("l'api renvoie : " + x);
+        console.log("api envoie : " + x);
+        console.log("^ " + time.getHours() + "h " + time.getMinutes() + "min ^");
         // console.log(x);
         document.getElementById("compt").innerHTML = x;
     },
@@ -50,7 +51,9 @@
         console.log('error:',err);
         }
     });
+        var time = new Date();
         t = setTimeout(timedCount, 60000);
+        console.log("________________________");
         console.log('call session n°' + c);
         c += 1;
     }
