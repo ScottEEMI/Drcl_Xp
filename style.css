@@ -1,7 +1,7 @@
 body{
   padding-top: 5%;
   background-color: black;
-  font-family: sans-serif;
+  font-family: drclFont;
 }
 
 .main-container{
@@ -40,4 +40,9 @@ p{
 
 .text{
   font-size: 22px;
+}
+
+@font-face {
+  font-family: drclFont;
+  src: url(font/GthamDrcl.ttc);
 }
